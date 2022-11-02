@@ -7,17 +7,63 @@ const url =
 const SingleOrder = ({
   PurchaseOrderTypeAbbreviation,
   PurchaseOrderNo,
+  PurchaseOrderAddress,
   PurchaseOrderId,
   PurchaseOrderContactPerson,
   PurchaseOrderStatus,
   PurchaseOrderDetails,
 }) => {
+  const [showDetails, setShowDetails] = useState(false);
   return (
-    <div className="section">
-      <p>
-        {PurchaseOrderTypeAbbreviation} – {PurchaseOrderNo}
-      </p>
+    <div>
+      <div className="items">
+        <h3>
+          {PurchaseOrderTypeAbbreviation} – {PurchaseOrderNo}
+        </h3>
+        <button className="btn" onClick={() => setShowDetails(!showDetails)}>
+          {showDetails ? "Close" : "Show Details"}
+        </button>
+      </div>
+      {showDetails && (
+        <PurchaseDetails
+          OrderStatus={PurchaseOrderStatus}
+          OrderAddress={PurchaseOrderAddress}
+          ContactPerson={PurchaseOrderContactPerson}
+          purchaseDetails={PurchaseOrderDetails}
+        />
+      )}
     </div>
+  );
+};
+
+const PurchaseDetails = ({
+  purchaseDetails,
+  OrderStatus,
+  ContactPerson,
+  OrderAddress,
+}) => {
+  // console.log(purchaseDetails);
+  return (
+    <>
+      <p>{OrderAddress}</p>
+      <p>{ContactPerson}</p>
+      <p>{OrderStatus}</p>
+      {purchaseDetails.map((detail, index) => {
+        return <FullPurchaseDetails key={index} detail={detail} />;
+      })}
+    </>
+  );
+};
+
+const FullPurchaseDetails = ({ detail }) => {
+  // console.log(detail);
+  return (
+    <>
+      {/* <p>{detail.PurchaseOrderRowProductSKU}</p>
+      <p>{detail.PurchaseOrderRowQuantity}</p>
+      <p>{detail.PurchaseOrderRowQuantity}</p>
+      <p>{detail.PurchaseOrderRowQuantity}</p> */}
+    </>
   );
 };
 
@@ -39,7 +85,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="container">
       <h1>MVPurchase Orders</h1>
       {purchaseOrder?.map((orders, index) => {
         return <SingleOrder key={index} {...orders} />;
