@@ -20,7 +20,10 @@ const SingleOrder = ({
         <h3>
           {PurchaseOrderTypeAbbreviation} – {PurchaseOrderNo}
         </h3>
-        <button className="btn" onClick={() => setShowDetails(!showDetails)}>
+        <button
+          className={`${showDetails ? "red" : "btn"}`}
+          onClick={() => setShowDetails(!showDetails)}
+        >
           {showDetails ? "Close" : "Show Details"}
         </button>
       </div>
@@ -42,15 +45,26 @@ const PurchaseDetails = ({
   ContactPerson,
   OrderAddress,
 }) => {
+  const [showDetails, setShowDetails] = useState(false);
   // console.log(purchaseDetails);
   return (
     <>
       <p>{OrderAddress}</p>
       <p>{ContactPerson}</p>
       <p>{OrderStatus}</p>
-      {purchaseDetails.map((detail, index) => {
-        return <FullPurchaseDetails key={index} detail={detail} />;
-      })}
+      <div className="items">
+        <h2>Purchase Order Details </h2>
+        <button
+          className={`${showDetails ? "red" : "btn"}`}
+          onClick={() => setShowDetails(!showDetails)}
+        >
+          {showDetails ? "Close" : "Show Details"}
+        </button>
+      </div>
+      {showDetails &&
+        purchaseDetails.map((detail, index) => {
+          return <FullPurchaseDetails key={index} detail={detail} />;
+        })}
     </>
   );
 };
@@ -59,10 +73,10 @@ const FullPurchaseDetails = ({ detail }) => {
   // console.log(detail);
   return (
     <>
-      {/* <p>{detail.PurchaseOrderRowProductSKU}</p>
-      <p>{detail.PurchaseOrderRowQuantity}</p>
-      <p>{detail.PurchaseOrderRowQuantity}</p>
-      <p>{detail.PurchaseOrderRowQuantity}</p> */}
+      <p>Product SKU: {detail.PurchaseOrderRowProductSKU}</p>
+      <p>Quantity Ordered: {detail.PurchaseOrderRowQuantity}</p>
+      <p>Unit Price: {detail.PurchaseOrderRowUnitPriceWithoutTaxOrDiscount}</p>
+      <p>Total Amount: {detail.PurchaseOrderRowTotalAmount}</p>
     </>
   );
 };
