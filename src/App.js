@@ -15,7 +15,7 @@ const SingleOrder = ({
 }) => {
   const [showDetails, setShowDetails] = useState(false);
   return (
-    <div>
+    <section className="section">
       <div className="items">
         <h3>
           {PurchaseOrderTypeAbbreviation} – {PurchaseOrderNo}
@@ -35,7 +35,7 @@ const SingleOrder = ({
           purchaseDetails={PurchaseOrderDetails}
         />
       )}
-    </div>
+    </section>
   );
 };
 
@@ -49,11 +49,22 @@ const PurchaseDetails = ({
   // console.log(purchaseDetails);
   return (
     <>
-      <p>{OrderAddress}</p>
-      <p>{ContactPerson}</p>
-      <p>{OrderStatus}</p>
+      <p>
+        <strong>Order Address: </strong>
+        {OrderAddress}
+      </p>
+      <p>
+        <strong>Order Contact Person: </strong>
+        {ContactPerson}
+      </p>
+      <p>
+        <strong>Order Status: </strong>
+        {OrderStatus}
+      </p>
       <div className="items">
-        <h2>Purchase Order Details </h2>
+        <p>
+          <strong>Purchase Order Details : </strong>
+        </p>
         <button
           className={`${showDetails ? "red" : "btn"}`}
           onClick={() => setShowDetails(!showDetails)}
@@ -61,10 +72,21 @@ const PurchaseDetails = ({
           {showDetails ? "Close" : "Show Details"}
         </button>
       </div>
-      {showDetails &&
-        purchaseDetails.map((detail, index) => {
-          return <FullPurchaseDetails key={index} detail={detail} />;
-        })}
+      {showDetails ? (
+        <table>
+          <tbody>
+            <tr>
+              <th>Product SKU</th>
+              <th>Quantity Ordered</th>
+              <th>Unit Price</th>
+              <th>Total Amount</th>
+            </tr>
+            {purchaseDetails.map((detail, index) => {
+              return <FullPurchaseDetails key={index} detail={detail} />;
+            })}
+          </tbody>
+        </table>
+      ) : null}
     </>
   );
 };
@@ -73,10 +95,12 @@ const FullPurchaseDetails = ({ detail }) => {
   // console.log(detail);
   return (
     <>
-      <p>Product SKU: {detail.PurchaseOrderRowProductSKU}</p>
-      <p>Quantity Ordered: {detail.PurchaseOrderRowQuantity}</p>
-      <p>Unit Price: {detail.PurchaseOrderRowUnitPriceWithoutTaxOrDiscount}</p>
-      <p>Total Amount: {detail.PurchaseOrderRowTotalAmount}</p>
+      <tr>
+        <td>{detail.PurchaseOrderRowProductSKU}</td>
+        <td>{detail.PurchaseOrderRowQuantity}</td>
+        <td>{detail.PurchaseOrderRowUnitPriceWithoutTaxOrDiscount}</td>
+        <td>{detail.PurchaseOrderRowTotalAmount}</td>
+      </tr>
     </>
   );
 };

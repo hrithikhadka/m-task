@@ -11,13 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 .section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* background-color: rgb(223, 236, 236); */
+  background: hsl(210, 36%, 96%);
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
 }
-
 .container {
   width: 90vw;
   margin: 5rem auto;
@@ -78,4 +77,20 @@ h3 {
 }
 h2 {
   font-size: 1rem;
+}
+
+table {
+  width: 100%;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 5px;
+  text-align: center;
 }
