@@ -11,6 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.loading {
+  text-align: center;
+  margin: auto;
+}
 .section {
   background: hsl(210, 36%, 96%);
   padding: 1rem 2rem;
