@@ -12,11 +12,11 @@ code {
     monospace;
 }
 .section {
-  /* background-color: rgb(223, 236, 236); */
   background: hsl(210, 36%, 96%);
   padding: 1rem 2rem;
   border-radius: 0.25rem;
 }
+
 .container {
   width: 90vw;
   margin: 5rem auto;
@@ -29,6 +29,12 @@ code {
   justify-content: center;
   align-items: center;
   gap: 1rem 2rem;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    padding-left: 0.8rem;
+  }
 }
 
 .items {
@@ -79,6 +85,16 @@ h2 {
   font-size: 1rem;
 }
 
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .btn,
+  .red {
+    font-size: 1rem;
+  }
+}
+
 table {
   width: 100%;
 }
@@ -92,5 +108,5 @@ td {
 th,
 td {
   padding: 5px;
-  text-align: center;
+  text-align: left;
 }
