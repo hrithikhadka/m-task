@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+## Megaventory Purchase Order Details
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An application used to extract data from API to display some details of purchase order, built with React, JavaScript, and CSS.
 
-## Available Scripts
+## Project Status
 
-In the project directory, you can run:
+This project is completed. Users can click on show details and see visual data representation. There is functionality to toggle between show details and close to display and close data.
 
-### `npm start`
+## Project Screen Shots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Main Page             |  Show Details
+:-------------------------:|:-------------------------:
+<img src="https://user-images.githubusercontent.com/73479315/199710404-9e911445-ad2e-422e-bf1e-b7c30301727f.PNG" width="500" height="400" />  |  <img src="https://user-images.githubusercontent.com/73479315/199712630-daf6e8a0-048c-429d-94d5-ffe7aab66e57.PNG" width="500" height="400" /> 
 
-### `npm test`
+## Reflection
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This was a coding project for Megaventory Interview. The goal of this project was to fetch data from an API using Frontend-development framework React JS.
 
-### `npm run build`
+I started this process by using the `create-react-app` boilerplate, then setting up the files. Then, I studied what the API was returning in the browser. After that, I started using React to fetch the API and get the data in the console. Then, I extracted only the data that are required to be displayed for the sake of project. Furthermore, I fetched data and added tables for Purchase Order Details such as Product SKU, Ordered Quantity, Unit Price, and Total Amount. Finally, I made the project responsive across different screen sizes.  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+One of the main challenges I ran into was adding tables. Table head (th) were repeated for each item but I needed to have table head only once. This lead me to spend lot of hours. Finally, I came to realize that I was using table head(th) inside map method. Therefore, shifting the table before map method fixed the problem.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation and Setup Instructions  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
 
-### `npm run eject`
+Installation:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`npm install`  
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To Run Test Suite:  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`npm test`  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To Start Server:
 
-## Learn More
+`npm start`  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To Visit App:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`localhost:3000/`  
