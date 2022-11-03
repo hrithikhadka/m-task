@@ -1,6 +1,8 @@
 ## Megaventory Purchase Order Details
 
-An application used to extract data from API to display some details of purchase order, built with React, JavaScript, and CSS.
+An application used to extract data from API to display some details of purchase order, built with React, JavaScript, and CSS. <br/>
+
+Live Link: https://amazing-brioche-cc4bf2.netlify.app/
 
 ## Project Status
 
