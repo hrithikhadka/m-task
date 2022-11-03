@@ -14,7 +14,7 @@ code {
 
 .loading {
   text-align: center;
-  margin: auto;
+  margin-top: 10rem;
 }
 .section {
   background: hsl(210, 36%, 96%);
